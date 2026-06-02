@@ -1,59 +1,273 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Inventory Lending Management System
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A web-based inventory lending management system built with Laravel and MySQL.
 
-## About Laravel
+The application helps administrators manage inventory items, record borrowing transactions, track item availability, and monitor lending history through a centralized system.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Students can view their borrowing records and monitor the status of borrowed items, while administrators manage inventory data and lending transactions.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Overview
 
-## Learning Laravel
+Managing inventory using spreadsheets or manual records can become difficult as the number of items and borrowing transactions grows.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+This project was developed to digitize inventory tracking and borrowing management through a centralized web application.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+The system focuses on inventory administration, lending records, user management, and item availability tracking.
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## Project Scope
 
-### Premium Partners
+This project was developed as part of a Laravel bootcamp program.
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+My primary focus was implementing application features, understanding Laravel fundamentals, and building a complete inventory management workflow using the Laravel ecosystem.
 
-## Contributing
+---
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Key Features
 
-## Code of Conduct
+### Authentication & Authorization
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+* Login & Logout
+* Role-Based Access Control
+* Admin Accounts
+* Student Accounts
 
-## Security Vulnerabilities
+### User Management
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+* Create Users
+* Update Users
+* Delete Users
+* User Listing
 
-## License
+### Category Management
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+* Create Categories
+* Update Categories
+* Delete Categories
+* Category Listing
+
+### Inventory Management
+
+* Create Items
+* Update Items
+* Delete Items
+* Item Availability Tracking
+* Inventory Monitoring
+
+### Lending Management
+
+* Borrowing Records
+* Return Tracking
+* Lending History
+* Item Status Monitoring
+
+### Student Portal
+
+Students can:
+
+* View borrowed items
+* Monitor borrowing status
+* Check return status
+
+---
+
+## System Workflow
+
+### Borrowing Process
+
+1. Student requests an item through an offline process
+2. Administrator approves the request offline
+3. Borrowing data is recorded in the application
+4. Item status changes to borrowed
+5. Student can view borrowed items through the system
+6. Item is returned through an offline process
+7. Administrator updates the borrowing status
+8. Student can see the updated return status
+
+---
+
+## System Architecture
+
+Laravel Application
+
+↓
+
+Blade Templates
+
+↓
+
+Business Logic Layer
+
+↓
+
+MySQL Database
+
+---
+
+## Database Design
+
+The system uses a relational database structure designed around inventory and lending workflows.
+
+### Core Entities
+
+#### Users
+
+Stores:
+
+* User Accounts
+* Authentication Data
+* Role Information
+
+Roles:
+
+* Admin
+* Student
+
+---
+
+#### Categories
+
+Groups inventory items into organized categories.
+
+Examples:
+
+* Electronics
+* Equipment
+* Tools
+
+---
+
+#### Items
+
+Stores:
+
+* Item Information
+* Inventory Status
+* Category Relationships
+
+---
+
+#### Loans
+
+Stores:
+
+* Borrowing Records
+* Return Status
+* User Relationships
+* Item Relationships
+
+---
+
+## Technical Challenges
+
+### Inventory Tracking
+
+Challenge:
+
+Administrators need visibility into which items are currently borrowed and which items are available.
+
+Solution:
+
+Item status tracking was integrated into the lending workflow.
+
+---
+
+### Role Separation
+
+Challenge:
+
+Students and administrators require different levels of access.
+
+Solution:
+
+Role-based authorization was implemented to restrict system functionality according to user roles.
+
+---
+
+## Lessons Learned
+
+Through this project I gained practical experience with:
+
+* Laravel MVC Architecture
+* Authentication & Authorization
+* CRUD Development
+* Relational Database Design
+* Role-Based Access Control
+* Inventory Management Workflows
+* Blade Templating
+* Form Validation
+* Laravel Routing & Controllers
+
+---
+
+## Technology Stack
+
+### Backend
+
+* Laravel
+* PHP
+
+### Frontend
+
+* Blade
+* Bootstrap
+
+### Database
+
+* MySQL
+
+---
+
+## Screenshots
+
+### Admin Dashboard Page
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/a05046a7-9fd7-4257-8422-eb51142325ee" />
+
+### CRUD Loans Page
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/6ff621ad-0bc6-4e81-92d6-f4cbb164768c" />
+
+### Student Dashboard Page
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/6e7ed5fd-ac54-459b-981c-48bc1152136a" />
+
+---
+
+## Local Development Setup
+
+### Prerequisites
+
+* PHP 8+
+* Composer
+* MySQL
+
+### Installation
+
+```bash
+git clone https://github.com/rizqipratama25/siminlab-inventory-lending-management-system
+
+cd siminlab-inventory-lending-management-system
+
+composer install
+
+cp .env.example .env
+
+php artisan key:generate
+
+php artisan migrate
+
+php artisan serve
+```
+
+Application:
+
+```bash
+http://127.0.0.1:8000
+```
+
+---
+
+## Key Takeaway
+
+This project demonstrates the implementation of authentication, role-based authorization, relational database design, and inventory lending workflows using Laravel and MySQL within a complete web application.
